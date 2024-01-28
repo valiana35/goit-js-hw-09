@@ -10,21 +10,21 @@ form.addEventListener('submit', (event) => {
         email: emailValue,
         message: messageValue,
     }
-    if (emailValue && messageValue !== '');
+    if (emailValue.trim() !== '' && messageValue.trim() !== '') {
     console.log(data);
     localStorage.clear();
     form.reset();
+    }
 });
 
 function onFormInput() {
-    const name = form.elements.email.value.trim();
+    const email = form.elements.email.value.trim();
     const message = form.elements.message.value.trim();
     const data = {
-        name,
+        email,
         message,
     };
     saveToLocSt('feedback-form-state', data);
-    loadFromLocSt('feedback-form-state');
 }
 
 function saveToLocSt(key, value) {
@@ -34,7 +34,6 @@ function saveToLocSt(key, value) {
 
 function loadFromLocSt(key) {
     const zip = localStorage.getItem(key);
-    localStorage.setItem(key, zip);
     try {
         JSON.parse(zip);
     } catch {

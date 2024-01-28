@@ -1,3 +1,6 @@
+import SimpleLightbox from 'simplelightbox';
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 const images = [
     {
       preview:
@@ -73,7 +76,6 @@ const images = [
             class="gallery-image"
             src="${preview}"
             alt="${description}"
-            title="${description}"
           />
         </a>
       </li>`
@@ -82,8 +84,7 @@ const images = [
     gallery.innerHTML = gallaryContainer;
 }
 createGallary(); 
-import SimpleLightbox from 'simplelightbox';
-import "simplelightbox/dist/simple-lightbox.min.css";
+
 let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionPosition: 'bottom',
