@@ -64,7 +64,7 @@ const images = [
     },
   ];
 
-  const gallary = document.querySelector("ul.gallery");
+  const gallery = document.querySelector("ul.gallery");
   function createGallary() {
     const gallaryContainer = images.map(({ original, preview, description }) => {
         return `<li class="gallery-item">
@@ -72,14 +72,21 @@ const images = [
           <img
             class="gallery-image"
             src="${preview}"
-            data-source="${original}"
             alt="${description}"
+            title="${description}"
           />
         </a>
       </li>`
     })
     .join("\n");
-    gallary.innerHTML = gallaryContainer;
+    gallery.innerHTML = gallaryContainer;
 }
 createGallary(); 
-    
+import SimpleLightbox from 'simplelightbox';
+import "simplelightbox/dist/simple-lightbox.min.css";
+let lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250,
+});
+     
