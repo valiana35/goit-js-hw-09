@@ -39,4 +39,12 @@ function loadFromLocSt(key) {
     } catch {
         return zip;
     }
+
 }
+function init() {
+    const data = loadFromLocSt('feedback-form-state') || {};
+    form.elements.email.value = data.email || '';
+    form.elements.message.value = data.message || '';
+}
+
+init()
