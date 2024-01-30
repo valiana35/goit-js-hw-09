@@ -35,12 +35,12 @@ function saveToLocSt(key, value) {
 function loadFromLocSt(key) {
     const zip = localStorage.getItem(key);
     try {
-        JSON.parse(zip);
+       return JSON.parse(zip);
     } catch {
         return zip;
     }
-
 }
+
 function init() {
     const data = loadFromLocSt('feedback-form-state') || {};
     form.elements.email.value = data.email || '';

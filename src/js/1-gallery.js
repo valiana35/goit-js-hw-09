@@ -68,7 +68,7 @@ const images = [
   ];
 
   const gallery = document.querySelector("ul.gallery");
-  function createGallary() {
+  function createGallery() {
     const gallaryContainer = images.map(({ original, preview, description }) => {
         return `<li class="gallery-item">
         <a class="gallery-link" href="${original}">
@@ -83,9 +83,9 @@ const images = [
     .join("\n");
     gallery.innerHTML = gallaryContainer;
 }
-createGallary(); 
+createGallery(); 
 
-let lightbox = new SimpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
